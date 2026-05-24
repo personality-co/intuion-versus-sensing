@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensing vs Intuition Test • 40 Questions</title>
+    <title>Intuition vs Sensing Test • 60 Questions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
@@ -25,8 +25,8 @@
     <!-- START SCREEN -->
     <div id="start-screen">
         <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold">Sensing vs Intuition Test</h1>
-            <p class="mt-4 text-xl text-slate-300">40 Questions • MBTI Style</p>
+            <h1 class="text-5xl font-bold">Intuition vs Sensing Test</h1>
+            <p class="mt-4 text-xl text-slate-300">60 Questions • Deep Insight</p>
             <p class="text-sm text-slate-400 mt-6">
                 <span class="text-emerald-400">0</span> = Does not describe me at all • 
                 <span class="text-violet-400">100</span> = Describes me perfectly
@@ -80,7 +80,7 @@
     <!-- RESULTS SCREEN -->
     <div id="results-screen" class="hidden">
         <div class="bg-slate-900 rounded-3xl shadow-2xl p-14 text-center">
-            <h2 class="text-5xl font-bold mb-8">Your Sensing vs Intuition Result</h2>
+            <h2 class="text-5xl font-bold mb-8">Your Intuition vs Sensing Result</h2>
             
             <div class="flex justify-center gap-16 my-12">
                 <div>
@@ -113,51 +113,71 @@
 </div>
 
 <script>
-// 40 Questions - 20 Sensing + 20 Intuition (clear & accurate)
+// 60 High-Quality Questions - 30 Sensing + 30 Intuition
 const questions = [
-    // Sensing-oriented (Low Intuition score)
-    {text: "I focus on concrete facts and real-world details.", intuition: 0},
-    {text: "I trust practical experience and what I can see or touch.", intuition: 0},
-    {text: "I prefer step-by-step instructions and clear procedures.", intuition: 0},
-    {text: "I remember specific details about what actually happened.", intuition: 0},
-    {text: "I am more interested in the here and now than future possibilities.", intuition: 0},
-    {text: "I learn best through hands-on experience.", intuition: 0},
-    {text: "I value realism and common sense over imagination.", intuition: 0},
-    {text: "I notice small sensory details in my environment.", intuition: 0},
-    {text: "I prefer routines and proven methods that work.", intuition: 0},
-    {text: "I make decisions based on observable facts and evidence.", intuition: 0},
-    {text: "I am practical and grounded in reality.", intuition: 0},
-    {text: "I prefer clear, literal communication.", intuition: 0},
-    {text: "I focus on what is actually happening rather than what could be.", intuition: 0},
-    {text: "I value tradition and what has worked reliably in the past.", intuition: 0},
-    {text: "I am very aware of my physical surroundings.", intuition: 0},
-    {text: "I like things that are tangible and useful right now.", intuition: 0},
-    {text: "I pay close attention to the facts of a situation.", intuition: 0},
-    {text: "I prefer concrete examples over abstract theories.", intuition: 0},
-    {text: "I enjoy activities that engage my five senses.", intuition: 0},
-    {text: "I solve problems using tried-and-true methods.", intuition: 0},
+    // === SENSING ORIENTED (Low Intuition) ===
+    {text: "I focus on the facts and details of what is actually happening right now.", intuition: 0},
+    {text: "I trust concrete evidence and real-world experience more than ideas or theories.", intuition: 0},
+    {text: "I prefer clear, step-by-step instructions and practical methods.", intuition: 0},
+    {text: "I notice small sensory details that others often miss.", intuition: 0},
+    {text: "I am more interested in the present moment than speculating about the future.", intuition: 0},
+    {text: "I learn best by doing things hands-on rather than reading about them.", intuition: 0},
+    {text: "I value practicality and common sense over imagination.", intuition: 0},
+    {text: "I remember specific facts, numbers, and details accurately.", intuition: 0},
+    {text: "I prefer routines and methods that have proven to work.", intuition: 0},
+    {text: "I communicate in clear, literal, and straightforward ways.", intuition: 0},
+    {text: "I focus on what is realistic and achievable rather than idealistic.", intuition: 0},
+    {text: "I pay close attention to my physical surroundings and environment.", intuition: 0},
+    {text: "I like things that are tangible, useful, and immediately applicable.", intuition: 0},
+    {text: "I solve problems using tried and tested approaches.", intuition: 0},
+    {text: "I prefer concrete examples over abstract concepts.", intuition: 0},
+    {text: "I enjoy activities that engage my senses - touch, taste, sight, sound.", intuition: 0},
+    {text: "I am grounded in reality and prefer dealing with what exists.", intuition: 0},
+    {text: "I value precision and accuracy in everyday tasks.", intuition: 0},
+    {text: "I remember events by recalling specific details of what happened.", intuition: 0},
+    {text: "I prefer following established procedures rather than inventing new ones.", intuition: 0},
+    {text: "I am very aware of changes in my physical environment.", intuition: 0},
+    {text: "I like working with real objects and practical tools.", intuition: 0},
+    {text: "I focus on the here and now rather than what could possibly happen.", intuition: 0},
+    {text: "I trust what I can see, hear, and touch more than hunches.", intuition: 0},
+    {text: "I prefer facts over possibilities.", intuition: 0},
+    {text: "I am good at noticing inconsistencies in details.", intuition: 0},
+    {text: "I enjoy repetitive tasks if they serve a practical purpose.", intuition: 0},
+    {text: "I make decisions based on past experiences and proven results.", intuition: 0},
+    {text: "I prefer straightforward and realistic explanations.", intuition: 0},
+    {text: "I value reliability and dependability over creativity.", intuition: 0},
 
-    // Intuition-oriented (High Intuition score)
+    // === INTUITION ORIENTED (High Intuition) ===
     {text: "I often think about future possibilities and what could be.", intuition: 100},
     {text: "I enjoy exploring patterns, connections, and hidden meanings.", intuition: 100},
-    {text: "I get excited by new ideas and innovative concepts.", intuition: 100},
-    {text: "I often read between the lines and sense what isn't directly said.", intuition: 100},
-    {text: "I enjoy brainstorming wild and unconventional possibilities.", intuition: 100},
-    {text: "I think in metaphors and big-picture concepts.", intuition: 100},
-    {text: "I often wonder about the deeper meaning behind events.", intuition: 100},
-    {text: "I get bored with too much routine and repetition.", intuition: 100},
-    {text: "I enjoy philosophical or theoretical discussions.", intuition: 100},
-    {text: "I trust my intuition and gut feelings about the future.", intuition: 100},
-    {text: "I often imagine how things could be improved or changed.", intuition: 100},
-    {text: "I enjoy creative writing, art, or speculative ideas.", intuition: 100},
-    {text: "I see the big picture before focusing on the details.", intuition: 100},
-    {text: "I get energized by exploring new concepts and theories.", intuition: 100},
-    {text: "I think about symbols, archetypes, and underlying themes.", intuition: 100},
-    {text: "I prefer abstract ideas over concrete details.", intuition: 100},
-    {text: "I naturally connect unrelated ideas in creative ways.", intuition: 100},
-    {text: "I focus on potential and what might happen in the future.", intuition: 100},
-    {text: "I enjoy discussing 'what if' scenarios.", intuition: 100},
-    {text: "I look for innovative solutions rather than standard ones.", intuition: 100}
+    {text: "I get excited by new ideas, concepts, and innovations.", intuition: 100},
+    {text: "I naturally read between the lines and sense what is not being said.", intuition: 100},
+    {text: "I love brainstorming wild and unconventional possibilities.", intuition: 100},
+    {text: "I think in metaphors, symbols, and big-picture concepts.", intuition: 100},
+    {text: "I often wonder about the deeper meaning or purpose behind things.", intuition: 100},
+    {text: "I get bored easily with routine and repetition.", intuition: 100},
+    {text: "I enjoy theoretical and philosophical discussions.", intuition: 100},
+    {text: "I trust my intuition and gut feelings about future outcomes.", intuition: 100},
+    {text: "I frequently imagine how things could be improved or transformed.", intuition: 100},
+    {text: "I see connections between seemingly unrelated ideas.", intuition: 100},
+    {text: "I focus more on potential and what might happen than on current reality.", intuition: 100},
+    {text: "I enjoy discussing 'what if' scenarios and hypothetical situations.", intuition: 100},
+    {text: "I prefer abstract ideas and theories over concrete details.", intuition: 100},
+    {text: "I naturally look for underlying patterns and systems.", intuition: 100},
+    {text: "I get energized by exploring new concepts and creative possibilities.", intuition: 100},
+    {text: "I think about the big picture before focusing on small details.", intuition: 100},
+    {text: "I am drawn to symbols, archetypes, and metaphorical thinking.", intuition: 100},
+    {text: "I often predict how situations might unfold in the future.", intuition: 100},
+    {text: "I enjoy creative writing, art, or speculative fiction.", intuition: 100},
+    {text: "I find routine daily tasks draining and prefer novelty.", intuition: 100},
+    {text: "I look for innovative solutions rather than standard ones.", intuition: 100},
+    {text: "I am more interested in why things happen than in what happened.", intuition: 100},
+    {text: "I often have sudden insights or 'aha' moments.", intuition: 100},
+    {text: "I prefer exploring multiple possibilities before choosing a path.", intuition: 100},
+    {text: "I think conceptually and strategically rather than tactically.", intuition: 100},
+    {text: "I am fascinated by trends, patterns, and future implications.", intuition: 100},
+    {text: "I enjoy discussing ideas more than practical execution.", intuition: 100},
+    {text: "I see the world as full of possibilities and potential.", intuition: 100}
 ];
 
 let userAnswers = new Array(questions.length).fill(50);
@@ -230,15 +250,15 @@ function showResults() {
 
     let description = "";
     if (result.intuitionScore >= 70) {
-        description = "You have a strong <strong>Intuition (N)</strong> preference. You are future-oriented, imaginative, and skilled at seeing patterns, possibilities, and big-picture ideas.";
+        description = "You have a strong <strong>Intuition (N)</strong> preference. You are future-oriented, imaginative, and skilled at seeing patterns, possibilities, and abstract connections.";
     } else if (result.intuitionScore >= 55) {
-        description = "You lean toward <strong>Intuition (N)</strong>. You enjoy abstract thinking and future possibilities while still valuing some practical details.";
+        description = "You lean toward <strong>Intuition (N)</strong>. You enjoy big-picture thinking and future possibilities while still valuing some practical details.";
     } else if (result.intuitionScore >= 45) {
         description = "You are fairly balanced between <strong>Sensing (S)</strong> and <strong>Intuition (N)</strong>. You can switch between concrete facts and abstract ideas depending on the situation.";
     } else if (result.intuitionScore >= 30) {
-        description = "You lean toward <strong>Sensing (S)</strong>. You are practical and detail-oriented, with some ability to think about future possibilities.";
+        description = "You lean toward <strong>Sensing (S)</strong>. You are practical, detail-oriented, and grounded in the present moment.";
     } else {
-        description = "You have a strong <strong>Sensing (S)</strong> preference. You are practical, grounded in the present, and focused on concrete facts, details, and real-world experience.";
+        description = "You have a strong <strong>Sensing (S)</strong> preference. You are realistic, detail-focused, and prefer concrete facts and real-world experience.";
     }
 
     document.getElementById('result-description').innerHTML = description;
@@ -246,14 +266,14 @@ function showResults() {
 
 function copyResults() {
     const r = calculateResult();
-    const text = `Sensing vs Intuition Test Result\n\nSensing: ${r.sensingScore}%\nIntuition: ${r.intuitionScore}%\n`;
+    const text = `Intuition vs Sensing Test Result\n\nSensing: ${r.sensingScore}%\nIntuition: ${r.intuitionScore}%\n`;
     navigator.clipboard.writeText(text).then(() => alert("Results copied!"));
 }
 
 function saveAsImage() {
     html2canvas(document.getElementById('results-screen'), {scale: 2}).then(canvas => {
         const a = document.createElement('a');
-        a.download = 'sensing-vs-intuition-results.png';
+        a.download = 'intuition-vs-sensing-results.png';
         a.href = canvas.toDataURL();
         a.click();
     });
